@@ -13,7 +13,7 @@
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator align-left">
       <%= link.blank? ? name : link_to(name, link) %>
     </span>
-    <span id="comment_<%= comment.id.to_s %>_actions_span" class="comment_actions">
+    <span id="comment_<%= comment.id.to_s %>_actions_span" class="comment_actions align-right">
       <%= render partial: 'commontator/comments/actions',
                  locals: { comment: comment,
                               user: user } %>
