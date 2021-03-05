@@ -31,4 +31,8 @@
     
     <%= yield %>
   </body>
+
+  <% if current_user %>
+    <footer><a href="https://github.com/PetarSimonovic/acebook-poke"><%=(fa_icon "github")%></a></footer> 
+  <% end %> 
 </html>

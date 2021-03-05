@@ -20,9 +20,9 @@
         <span>
         <%= link_to toggle_favorite_post_path(post), remote: true, method: :post do %>
           <% if current_user.favorited?(post) %>
-            <% colour = 'color:blue;' %>
+            <% colour = 'color: #44d9e6;' %>
           <% else %>
-            <% colour = 'color:grey;' %>
+            <% colour = 'color: #666666;' %>
           <% end %>
           <%= fa_icon "thumbs-up", style: colour, id: "like-button-#{post.id}" %>
           <%= tag.span id: "like-count-#{post.id}" do %>

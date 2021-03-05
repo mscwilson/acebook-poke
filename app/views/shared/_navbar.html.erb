@@ -11,7 +11,12 @@
         <% end %>
 
         <% if current_user.present? %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link signout', id: 'sign-out' %>
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link signout', id: 'sign-out' %>
+          </li>
+          <li class="nav-item about">
+            <%= link_to 'About', about_path, class: 'nav-link' %>
+          </li>
         <% end %>
 
       </ul>
