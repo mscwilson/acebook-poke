@@ -73,7 +73,9 @@ jobs:
             echo "The command above installs Heroku, the command below deploys.
             What you do inbetween is up to you!"
       - heroku/deploy-via-git
-
+      - run: 
+          name: Migrate db
+          command: heroku run rake db:migrate --app $HEROKU_APP_NAME
 
         
     # machine:
