@@ -117,7 +117,10 @@ workflows:
       - test:         # Then run test,
           requires:   # Test requires that build passes for it to run.
             - build   
-      - deploy
+      - deploy:
+          requires:
+            - build
+            - test
 
       
       # - deploy: 
