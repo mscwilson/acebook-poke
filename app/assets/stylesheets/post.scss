@@ -8,19 +8,21 @@
 }
 
 .post-page {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #666666;
   height: 100%;
 }
 
 .post-feed {
   padding-top: 20px;
-  position: relative;
-  top: 0px;
-  height: 100%;
   margin: auto;
   width: 80%;
   background-color: #f6f6f6;
+  overflow-y: auto;
 }
 
 .post-body {
@@ -71,7 +73,7 @@
   transition: transform .2s;
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
+  transform: scale(1.5);
  }
 
 
@@ -79,20 +81,19 @@
   transition: transform .2s;
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
+  transform: scale(1.5);
  }
 
  .fa-thumbs-up:hover {
   transition: transform .2s;
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
+  transform: scale(1.5);
  }
 
  .fa-plus-square-o:hover {
   transition: transform .2s;
   -ms-transform: scale(1.5); /* IE 9 */
   -webkit-transform: scale(1.5); /* Safari 3-8 */
-  transform: scale(1.5); 
+  transform: scale(1.5);
  }
-
