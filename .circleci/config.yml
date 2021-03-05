@@ -114,13 +114,13 @@ workflows:
   build_test_deploy:     # The name of our workflow is "build_and_test"
     jobs:             # The list of jobs we run as part of this workflow.
       - build        
-      # - test:         # Then run test,
-      #     requires:   # Test requires that build passes for it to run.
-      #       - build   
+      - test:         # Then run test,
+          requires:   # Test requires that build passes for it to run.
+            - build   
       - deploy:
           requires:
             - build
-            # - test
+            - test
 
       
       # - deploy: 
