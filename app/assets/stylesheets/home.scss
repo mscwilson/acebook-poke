@@ -2,3 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "font-awesome";
+
+
+footer {
+  background-color: #f6f6f6;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  font-size: 40px;
+  a {
+    color: #44d9e6;
+  }
+}
+
+footer:hover {
+  transition: transform .2s;
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
+ }
