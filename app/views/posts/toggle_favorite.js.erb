@@ -5,8 +5,7 @@ var postFaveCount = "<%= @post.favorited.count %>"
 function toggleLikeButton(postId, postFaveCount, innerHTML) {
   let likeButton = document.querySelector(`#like-button-${postId}`)
   let likeCount = document.querySelector(`#like-count-${postId}`)
-
-  if(likeButton.style.color === "666666"){
+  if(likeButton.style.color === "rgb(102, 102, 102)"){
     likeButton.style.color = "#44d9e6"
   } else {
     likeButton.style.color = "#666666"
