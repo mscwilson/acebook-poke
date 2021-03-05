@@ -62,27 +62,28 @@ jobs:
           command: bundle exec rails db:schema:load --trace
       # Run rspec in parallel
       - ruby/rspec-test
-  deploy:
-    machine:
-        enabled: true
-    working_directory: ~/acebook-poke
-    environment:
-      HEROKU_APP_NAME: $HEROKU_APP_NAME # define env var $HEROKU_APP
-    steps:
-      - checkout
-      - run: bash .circleci/setup-heroku.sh
-      - add_ssh_keys:
-          fingerprints:
-            - $HEROKU_SSH_FINGERPRINT
-      - deploy: 
-          name: deploy to Heroku if tests pass and branch is master
-          command: | 
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              git push --force https://git.heroku.com/$HEROKU_APP_NAME.git HEAD:refs/heads/master
-              heroku run rake db:migrate
-              sleep 5
-              heroku restart             
-            fi 
+
+        
+    # machine:
+    #     enabled: true
+    # working_directory: ~/acebook-poke
+    # environment:
+    #   HEROKU_APP_NAME: $HEROKU_APP_NAME # define env var $HEROKU_APP
+    # steps:
+    #   - checkout
+    #   - run: bash .circleci/setup-heroku.sh
+    #   - add_ssh_keys:
+    #       fingerprints:
+    #         - $HEROKU_SSH_FINGERPRINT
+    #   - deploy: 
+    #       name: deploy to Heroku if tests pass and branch is master
+    #       command: | 
+    #         if [ "${CIRCLE_BRANCH}" == "master" ]; then
+    #           git push --force https://git.heroku.com/$HEROKU_APP_NAME.git HEAD:refs/heads/master
+    #           heroku run rake db:migrate
+    #           sleep 5
+    #           heroku restart             
+    #         fi 
 
 
           # command: |
@@ -100,13 +101,21 @@ workflows:
   version: 2
   build_test_deploy:     # The name of our workflow is "build_and_test"
     jobs:             # The list of jobs we run as part of this workflow.
-      - build         # Run build first.
+      - build        
       - test:         # Then run test,
           requires:   # Test requires that build passes for it to run.
-            - build   # Finally, run the build job.
-      - deploy: 
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+            - build   
+
+      - heroku/deploy-via-git:
+          post-steps:
+            - run: heroku run rake db:migrate
+          pre-steps:
+            - run: git push heroku master
+
+
+      # - deploy: 
+      #     requires:
+      #       - test
+      #     filters:
+      #       branches:
+      #         only: master
