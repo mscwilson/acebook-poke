@@ -14,6 +14,7 @@
 }
 
 .post-feed {
+  padding-top: 20px;
   position: relative;
   top: 0px;
   height: 100%;
@@ -36,11 +37,11 @@
     padding: 5px;
     color: black;
     white-space: pre-wrap;
-    font-size: 15px;
+    // font-size: 15px;
   }
   * {
     color: #44d9e6;
-    font-size: 20px;
+    // font-size: 20px;
   }
   .align-left {
     float: left;
@@ -49,6 +50,14 @@
   .align-right {
     float: right;
     padding-right: 2.5%;
+  }
+  textarea {
+    color: #000;
+    width: 95%;
+    border-radius: .25rem;
+    resize: none;
+    // overflow: auto;
+    height: 3rem;
   }
 }
 
@@ -86,3 +95,4 @@
   -webkit-transform: scale(1.5); /* Safari 3-8 */
   transform: scale(1.5); 
  }
+
