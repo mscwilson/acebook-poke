@@ -6,7 +6,7 @@ RSpec.feature 'Timeline', type: :feature do
   scenario 'Can submit posts and view them' do
     sign_up
     find('.add-post').click
-    fill_in 'Message', with: DEFAULT_POST
+    fill_in 'post_message', with: DEFAULT_POST
     click_button 'Submit'
     expect(page).to have_content(DEFAULT_POST)
   end
@@ -30,7 +30,7 @@ RSpec.feature 'Timeline', type: :feature do
     sign_up
     create_post
     find("#edit-post").click
-    fill_in 'Message', with: SECONDARY_POST
+    fill_in 'post_message', with: SECONDARY_POST
     click_on 'Submit'
     expect(page).to have_content(SECONDARY_POST)
   end

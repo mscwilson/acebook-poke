@@ -22,7 +22,7 @@ end
 
 def create_post(post = DEFAULT_POST)
   find('.add-post').click
-  fill_in 'Message', with: post
+  fill_in 'post_message', with: post
   click_button 'Submit'
   expect(page).to have_content(post)
 end
